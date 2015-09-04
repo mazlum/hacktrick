@@ -10,5 +10,12 @@
       </button>
       <a class="navbar-brand" href="#">Hacktrick - Django ile Web Uygulaması Geliştirme </a>
     </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            {% if request.user.is_authenticated %}
+                <li><a href="{% url "user_logout" %}">Çıkış</a></li>
+            {% endif %}
+        </ul>
+      </div>
   </div><!-- /.container-fluid -->
 </nav>

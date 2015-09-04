@@ -1,7 +1,17 @@
 {% extends "base.html" %}
-
 {% block content %}
     <div class="container" style="border:1px solid #ddd; padding:10px; border-radius:4px">
+        {% if messages %}
+        <div class="alert alert-success">
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                    {{ message }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
         {% if form.errors %}
             <div class="alert alert-danger">
                 <ul>
