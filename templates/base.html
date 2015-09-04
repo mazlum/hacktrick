@@ -10,12 +10,16 @@
     <script type="text/javascript" src="{% static "js/bootstrap.min.js" %}"></script>
 </head>
 <body>
-    {% include "header.html" %}
+    <div class="container">
+        <div class="row" style="margin-top:20px">
+            {% include "header.html" %}
 
-        {% block content %}
-            <!-- Web site content is here -->
-        {% endblock %}
+                {% block content %}
+                    <!-- Web site content is here -->
+                {% endblock %}
 
-    {% include "footer.html" %}
+            {% include "footer.html" %}
+        </div>
+    </div>
 </body>
 </html>

@@ -1,5 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-    Site içeriği buraya gelecek
+    <div class="container" style="border:1px solid #ddd; padding:10px; border-radius:4px">
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                <ul>
+                {% for field in form %}
+                    {% if field.errors %}
+                        <li>{{ field.label }} : {{ field.errors }}</li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        <form action="" method="post">
+            {% csrf_token %}
+          <div class="form-group">
+            <label for="exampleInputEmail1">{{ form.domain.label }}</label>
+            {{ form.domain }}
+          </div>
+          <button type="submit" class="btn btn-danger">Submit</button>
+        </form>
+    </div>
 {% endblock %}
