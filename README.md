@@ -1,0 +1,1 @@
+Hacktrick konferansı için hazırlanmış örnek Django uygulaması.
