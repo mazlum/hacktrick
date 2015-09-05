@@ -34,7 +34,7 @@ def scans(request):
 
 @login_required(login_url="user_login")
 def get_scans(request):
-    scans = Domain.objects.filter(user=request.user)
+    scans = Domain.objects.filter(user=request.user).order_by('status')
     json_data = serializers.serialize('json', scans, fields=('domain', 'status'))
     return HttpResponse(json_data, content_type='json')
 

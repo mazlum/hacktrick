@@ -10,10 +10,10 @@
         </tr>
       </thead>
       <tbody ng-controller="TableController">
-        <tr ng-repeat="result in scan_results">
+        <tr ng-repeat="result in scan_results" ng-class="{'alert-danger': result.fields.status, 'alert-success': !result.fields.status}">
           <th scope="row">1</th>
           <td>
-              <a href="/scan-result/{$ result.pk $}" ng-if="result.fields.status == true">
+              <a href="/scan-result/{$ result.pk $}">
                   {$ result.fields.domain $}
               </a>
               <div ng-if="result.fields.status == false">{$ result.fields.domain $}</div>

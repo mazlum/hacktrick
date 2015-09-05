@@ -6,6 +6,7 @@ from libnmap.process import NmapProcess
 from libnmap.parser import NmapParser, NmapParserException
 from urlparse import urlparse
 
+
 def url_clean(web_site):
     """URL Clean"""
     if not (str(web_site).startswith('http') or str(web_site).startswith('https')):
