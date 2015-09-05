@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<table class="table table-hover" ng-app="scanApp">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Adres</th>
+          <th>Durum</th>
+        </tr>
+      </thead>
+      <tbody ng-controller="TableController">
+        <tr ng-repeat="result in scan_results">
+          <th scope="row">1</th>
+          <td>
+              <a href="/scan-result/{$ result.pk $}" ng-if="result.fields.status == true">
+                  {$ result.fields.domain $}
+              </a>
+              <div ng-if="result.fields.status == false">{$ result.fields.domain $}</div>
+          </td>
+          <td>
+              <div ng-if="result.fields.status == true">Tarama tamamlandı</div>
+              <div ng-if="result.fields.status == false">Taranıyor</div>
+          </td>
+        </tr>
+      </tbody>
+</table>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{% static "js/angular.js" %}"></script>
+<script type="text/javascript" src="{% static "js/angullarController.js" %}"></script>
+{% endblock %}

@@ -1,7 +1,9 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
 class Domain(models.Model):
+    user = models.ForeignKey(User)
     domain = models.URLField(max_length=100)
     status = models.BooleanField(default=False)
     result = models.TextField(null=True, blank=True)
